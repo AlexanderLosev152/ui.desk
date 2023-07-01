@@ -1,0 +1,142 @@
+@import "vars";
+@import "fonts";
+@import "reset";
+@import "libs";
+@import "global";
+@import "media.queries";
+
+// header
+
+.header {
+  margin-top: 1em;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  &_top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+.logo {
+  font-size: 1.5em;
+  font-weight: 500;
+  color: #333;
+  &:hover {
+    color: #5fb848;
+    transition: all 0.3s;
+  }
+}
+
+.menu {
+  position: relative;
+  &_nav {
+    display: flex;
+    gap: 1.5em;
+    @include mobile {
+      display: none;
+      position: absolute;
+      top: 2.5em;
+      left: 0;
+      right: 0;
+      width: 100%;
+      text-align: center;
+      background: #eee;
+      padding: 0.9em;
+    }
+    li {
+      @include mobile {
+        padding-top: 2em;
+      }
+    }
+  }
+  &_link {
+    color: #2c3847;
+    &:hover {
+      color: #5fb848;
+      transition: all 0.3s;
+    }
+  }
+  &_button {
+    display: none;
+    @include mobile {
+      display: block;
+      position: relative;
+      width: 2.5em;
+      height: 0.25em;
+      background: #2c3847;
+
+      &::before {
+        position: absolute;
+        content: "";
+        top: 0.5em;
+        width: 2.5em;
+        height: 0.25em;
+        background: #2c3847;
+      }
+      &::after {
+        position: absolute;
+        content: "";
+        top: -0.5em;
+        bottom: 2px;
+        width: 2.5em;
+        height: 0.25em;
+        background: #2c3847;
+      }
+    }
+  }
+}
+
+.menu_active {
+  background: transparent;
+  transition: all 0.3s;
+
+  &::before {
+    top: 0;
+    transform: rotate(45deg);
+    transition: all 0.3s;
+  }
+  &::after {
+    top: 0;
+    transform: rotate(-45deg);
+    transition: all 0.3s;
+  }
+}
+
+// -----
+
+// top
+
+.top {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  margin-top: 2em;
+  background-image: url(../images/header_bg.png);
+  background-repeat: no-repeat;
+  background-size: 50%;
+  background-position: right;
+  &_info {
+    max-width: 18em;
+    // height: 100%;
+    margin-bottom: 3.5em;
+  }
+  &_info--title {
+    font-size: 2em;
+    font-style: normal;
+    font-weight: 770;
+    line-height: normal;
+    span {
+      color: #5fb848;
+    }
+  }
+  p {
+    font-size: 1em;
+  }
+}
+.btn {
+}
